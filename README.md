@@ -1,0 +1,455 @@
+[index.html](https://github.com/user-attachments/files/28583172/index.html)
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 가족돌봄청년 지원자원 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px}
+body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:#F4F3EF;color:#1a1a1a;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+.page{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+
+/* Header */
+.masthead{margin-bottom:36px;border-bottom:2px solid #1B3A5C;padding-bottom:20px}
+.masthead-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.org-label{font-size:11px;font-weight:500;letter-spacing:.08em;color:#7A8692;text-transform:uppercase}
+.date-label{font-size:12px;color:#7A8692}
+.masthead h1{font-size:24px;font-weight:700;color:#1B3A5C;letter-spacing:-.02em;margin-bottom:4px}
+.masthead p{font-size:13px;color:#5E6B78}
+
+/* Summary strip */
+.summary-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:28px}
+.sum-item{background:#fff;border:1px solid #E2E0DA;border-radius:10px;padding:14px 16px;text-align:center}
+.sum-val{font-size:22px;font-weight:700;color:#1B3A5C}
+.sum-lbl{font-size:11px;color:#7A8692;margin-top:2px}
+
+/* Filter */
+.filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;position:sticky;top:0;z-index:10;background:#F4F3EF;padding:10px 0}
+.fbtn{font-size:12px;font-weight:500;padding:7px 16px;border-radius:24px;border:1px solid #CCC9C0;background:#fff;color:#5E6B78;cursor:pointer;transition:all .2s}
+.fbtn:hover{border-color:#1B3A5C;color:#1B3A5C}
+.fbtn.on{background:#1B3A5C;color:#fff;border-color:#1B3A5C}
+
+/* Sections */
+.section{margin-bottom:28px}
+.sec-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.sec-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff}
+.sec-icon.heart{background:#8B6AB5}
+.sec-icon.body{background:#D85A30}
+.sec-icon.career{background:#1D9E75}
+.sec-icon.life{background:#378ADD}
+.sec-title{font-size:13px;font-weight:700;color:#3D4854;letter-spacing:.04em}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:12px}
+@media(max-width:500px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #E2E0DA;border-radius:12px;padding:18px 20px;transition:box-shadow .2s,border-color .2s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);border-color:#C8C5BD}
+
+.card-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.card-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cb-purple{background:#EEEDFE;color:#534AB7}
+.cb-teal{background:#E1F5EE;color:#0F6E56}
+.cb-pink{background:#FBEAF0;color:#993556}
+.cb-coral{background:#FAECE7;color:#993C1D}
+.cb-amber{background:#FAEEDA;color:#854F0B}
+.cb-green{background:#EAF3DE;color:#3B6D11}
+.cb-blue{background:#E6F1FB;color:#185FA5}
+
+.card-name{font-size:14px;font-weight:700;color:#1B3A5C;line-height:1.4;margin-bottom:2px}
+.card-sub{font-size:12px;color:#7A8692}
+
+.info-grid{display:grid;gap:6px;margin-bottom:10px}
+.info-row{display:flex;gap:8px;font-size:12.5px;color:#5E6B78;line-height:1.5}
+.info-label{font-weight:700;color:#3D4854;white-space:nowrap;min-width:36px}
+.deadline-warn{color:#C0392B;font-weight:700;font-size:11px}
+
+.divider{border:none;border-top:1px dashed #E2E0DA;margin:10px 0}
+
+.doc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.dtag{font-size:10px;padding:3px 8px;border-radius:12px;font-weight:500}
+.dtag-std{background:#FAEEDA;color:#633806}
+.dtag-note{background:#EEEDFE;color:#3C3489}
+.dtag-alert{background:#FCEBEB;color:#A32D2D}
+
+.card-note{font-size:11.5px;color:#7A8692;line-height:1.6;margin-top:6px}
+
+.card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.apply-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:8px 16px;border-radius:8px;background:#1B3A5C;color:#fff;text-decoration:none;transition:background .2s}
+.apply-btn:hover{background:#2A5280}
+.apply-btn svg{width:13px;height:13px}
+.card-contact{font-size:11px;color:#7A8692;line-height:1.5}
+
+/* Common footer */
+.common-box{margin-top:32px;background:#fff;border:1px solid #E2E0DA;border-radius:12px;padding:20px 24px}
+.common-box h3{font-size:13px;font-weight:700;color:#1B3A5C;margin-bottom:8px}
+.common-box p{font-size:12.5px;color:#5E6B78;line-height:1.8}
+.common-box a{color:#2A5280;font-weight:500}
+
+/* Print */
+@media print{
+  body{background:#fff;font-size:12px}
+  .page{padding:0;max-width:100%}
+  .filter-bar{display:none}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #ccc}
+  .apply-btn{background:#1B3A5C!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec-icon{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dtag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span class="org-label">서울시복지재단 가족돌봄청년지원팀 WAY</span>
+    <span class="date-label">2026.06 기준 · 자치구 담당자 참고용</span>
+  </div>
+  <h1>2026년 가족돌봄청년 지원자원 안내</h1>
+  <p>현재 가족돌봄청년에게 연계 가능한 지원자원을 분야별로 정리한 참고자료입니다.</p>
+</header>
+
+<div class="summary-strip">
+  <div class="sum-item"><div class="sum-val">9</div><div class="sum-lbl">총 지원자원</div></div>
+  <div class="sum-item"><div class="sum-val">4</div><div class="sum-lbl">분야</div></div>
+  <div class="sum-item"><div class="sum-val">~11.30</div><div class="sum-lbl">대부분 마감</div></div>
+  <div class="sum-item"><div class="sum-val">9~39세</div><div class="sum-lbl">주요 지원 연령</div></div>
+</div>
+
+<div class="filter-bar">
+  <button class="fbtn on" onclick="fil('all',this)">전체 (9)</button>
+  <button class="fbtn" onclick="fil('mind',this)">🤍 마음 건강 (3)</button>
+  <button class="fbtn" onclick="fil('body',this)">🩺 신체 건강 (4)</button>
+  <button class="fbtn" onclick="fil('career',this)">💼 진로·미래준비 (1)</button>
+  <button class="fbtn" onclick="fil('life',this)">🏦 생활안정 (1)</button>
+</div>
+
+<!-- ========== 마음 건강 ========== -->
+<div class="section" data-cat="mind">
+  <div class="sec-head">
+    <div class="sec-icon heart">♡</div>
+    <span class="sec-title">마음 건강</span>
+  </div>
+  <div class="cards">
+
+    <!-- 심리상담 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-purple">🧠</div>
+        <div>
+          <div class="card-name">롯데백화점×기아대책 리조이스 심리상담</div>
+          <div class="card-sub">1:1 맞춤 심리상담·특수치료 6회기</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 9~39세 서울 거주 가족돌봄청소년·청년 및 가족구성원</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>심리치료·언어치료·놀이치료 + 심리검사(기질·성격·다면적인성검사)</span></div>
+        <div class="info-row"><span class="info-label">장소</span><span>대면(잠실·동탄·수지·수원점) / 비대면(Zoom)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서·장애인증명서</span>
+        <span class="dtag dtag-std">경제활동 증빙(해당자)</span>
+      </div>
+      <div class="card-note">서울복지포털 등록 완료자만 신청 가능 · 전 회기 참석 권장 · 약 2개월 진행</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/yJc9C" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">기아대책 CSR2팀 ☎ 02-2085-8196</span>
+      </div>
+    </div>
+
+    <!-- 애도상담 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-teal">🍃</div>
+        <div>
+          <div class="card-name">롯데백화점×기아대책 리조이스 애도상담</div>
+          <div class="card-sub">사별·상실 경험 대상 맞춤 애도상담 6회기</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 9~39세 서울 거주 가족돌봄청소년·청년 및 가족구성원</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>1:1 애도상담 6회기 + 심리검사(기질·성격·다면적인성검사)</span></div>
+        <div class="info-row"><span class="info-label">장소</span><span>대면(잠실·동탄·수지·수원점) / 비대면(Zoom)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-alert">사망진단서·별세확인서류</span>
+      </div>
+      <div class="card-note">심리상담과 동일 절차 · 증빙서류가 장애·질환 서류 대신 사망 관련 서류로 대체</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/5ca2D" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">기아대책 CSR2팀 ☎ 02-2085-8196</span>
+      </div>
+    </div>
+
+    <!-- 서울청년 마음건강 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-pink">😊</div>
+        <div>
+          <div class="card-name">서울청년 마음건강 지원사업</div>
+          <div class="card-sub">서울광역청년센터 연계 자기이해 상담</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 9. 25. <span class="deadline-warn">(조기 마감)</span></span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 19~39세 서울 거주 가족돌봄청년</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>사전심리검사 → 자기이해상담 6회기 → 추가지원 연계 · 대면/비대면(화상)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서·장애인증명서</span>
+        <span class="dtag dtag-std">경제활동 증빙(해당자)</span>
+      </div>
+      <div class="card-note">상담사 배정 최대 7일 · 4·7·9월 정기모집 기간 연계 지연 가능 · 참가확인서만 발급(소견서 불가)</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/QtizE" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">가족돌봄청년지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 신체 건강 ========== -->
+<div class="section" data-cat="body">
+  <div class="sec-head">
+    <div class="sec-icon body">+</div>
+    <span class="sec-title">신체 건강</span>
+  </div>
+  <div class="cards">
+
+    <!-- 암 치료비 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-coral">🏥</div>
+        <div>
+          <div class="card-name">서울성모병원 암 치료비 지원</div>
+          <div class="card-sub">청년 암환자 수술비·항암치료비</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 24~30세, 중위소득 120% 이하, 최고재산액 200% 이하</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>수술비·항암치료비 (초진 자부담 · 지원범위는 치료계획 확인 후 상담 결정)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서</span>
+        <span class="dtag dtag-std">경제활동 증빙</span>
+        <span class="dtag dtag-std">소득·주거·재산 확인</span>
+        <span class="dtag dtag-note">진료의뢰서(초진일까지)</span>
+      </div>
+      <div class="card-note">병원 6층 사회사업팀 방문 필수 · 미내원·잦은 변경 시 종결 · 지원종결 시 감사편지 제출</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/xzewB" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">가족돌봄청년지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+    <!-- 치과진료 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-coral">🦷</div>
+        <div>
+          <div class="card-name">서울성모병원 치과진료 지원</div>
+          <div class="card-sub">보존치료 250만 원 / 임플란트 500만 원</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 30세 이하, 중위소득 120% 이하, 최고재산액 200% 이하</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>보존적 치료(충치·크라운·충전 등) 250만 원 / 임플란트 500만 원</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서</span>
+        <span class="dtag dtag-std">소득·주거·재산 확인</span>
+        <span class="dtag dtag-note">의료급여의뢰서(해당자)</span>
+      </div>
+      <div class="card-note">지원항목 추후 변경 제한 가능(신청 시 정확 기재) · 미내원 시 종결 · 감사편지 제출</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/jSIVt" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">가족돌봄청년지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+    <!-- 흉터치료 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-coral">🩹</div>
+        <div>
+          <div class="card-name">서울성모병원 흉터치료 지원</div>
+          <div class="card-sub">외상(자해·화상·사고) 흉터 치료비</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 30세 이하, 중위소득 120% 이하, 최고재산액 200% 이하</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>레이저·수술·주사·연고 등 전반 치료비 / 자해흉터 시 정신건강의학과 협진 가능</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서</span>
+        <span class="dtag dtag-std">소득·주거·재산 확인</span>
+        <span class="dtag dtag-alert">흉터 부위 사진</span>
+      </div>
+      <div class="card-note">미용 목적 치료 제외 · 완전 제거 어려움(지속 관리 필요) · 미내원 시 종결 · 감사편지 제출</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/OPX2z" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">가족돌봄청년지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+    <!-- 효림의료재단 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-amber">🛏️</div>
+        <div>
+          <div class="card-name">효림의료재단 입원·진료 서비스</div>
+          <div class="card-sub">돌봄대상자 요양병원 입원 + 청년 인턴 지원</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 11. 30. <span class="deadline-warn">(잔여병상 소진 시 조기종료)</span></span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>만 9~39세 돌봄대상자 (중위소득 150% 이하) · 자녀돌봄·부부돌봄 제외</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>월 최대 150만 원 상당 입원·진료(1년) / 24시간 간호간병 / 양·한방 협진·물리치료</span></div>
+        <div class="info-row"><span class="info-label">장소</span><span>효림요양병원 (경기 고양시 일산서구 주화로 88)</span></div>
+        <div class="info-row"><span class="info-label">청년추가</span><span>만 19세↑ 청년미래내일경험인턴 (주 25h × 10주, 총 350만 원 지급)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="doc-tags">
+        <span class="dtag dtag-std">주민등록등본</span>
+        <span class="dtag dtag-std">가족관계증명서</span>
+        <span class="dtag dtag-std">진단서(진단코드 포함)</span>
+        <span class="dtag dtag-std">소득증명(건보 납부확인 3개월)</span>
+        <span class="dtag dtag-note">한마음 의료복지카드 발급 필수</span>
+      </div>
+      <div class="card-note">선정심의회 절차 · 신청 후 4주 내 개별안내 · 한마음 카드 미동의 시 제한 · 대리신청 가능(사례관리기관) · 장애인증명서로 대체 불가</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/xXwHR" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">효림요양병원 ☎ 010-4130-0041 / 서울시청 ☎ 02-2133-7315</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 진로·미래준비 ========== -->
+<div class="section" data-cat="career">
+  <div class="sec-head">
+    <div class="sec-icon career">→</div>
+    <span class="sec-title">진로·미래준비</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-green">🎯</div>
+        <div>
+          <div class="card-name">서울시일자리센터 취업지원서비스</div>
+          <div class="card-sub">진로·취업상담, 구직스킬, 역량강화, 사후관리</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 12. 31.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>서울복지포털 등록 가족돌봄청년 누구나 (소득 무관)</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>일자리상담 / 이력서·자소서·모의면접 클리닉 / 맞춤형 직무교육 / 취업 후 고용유지 상담</span></div>
+      </div>
+      <hr class="divider">
+      <div class="card-note">별도 서류 없음 (온라인 정보입력 + 개인정보 동의) · 전화 인터뷰 진행 가능</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/NZcqK" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">일자리센터 ☎ 1551-1929(1번) / 지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 생활안정 ========== -->
+<div class="section" data-cat="life">
+  <div class="sec-head">
+    <div class="sec-icon life">₩</div>
+    <span class="sec-title">생활안정</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-badge cb-blue">💰</div>
+        <div>
+          <div class="card-name">서울금융복지센터 금융상담</div>
+          <div class="card-sub">재무진단·채무상담·금융교육</div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">접수</span><span>상시 ~ 2026. 12. 31.</span></div>
+        <div class="info-row"><span class="info-label">대상</span><span>서울복지포털 등록 가족돌봄청년 누구나 (소득 무관)</span></div>
+        <div class="info-row"><span class="info-label">지원</span><span>재무진단 / 예산·목표설정 / 금융교육 / 채무조정(워크아웃·개인회생·파산)</span></div>
+      </div>
+      <hr class="divider">
+      <div class="card-note">별도 서류 없음 · 고용24 구직등록 완료자만 신청 가능 · 전화 인터뷰 가능</div>
+      <div class="card-footer">
+        <a class="apply-btn" href="https://i.listovey.com/r/eF0XC" target="_blank">신청하기 <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"/></svg></a>
+        <span class="card-contact">가족돌봄청년지원팀 ☎ 02-6353-0338</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 공통 안내 ========== -->
+<div class="common-box">
+  <h3>📌 공통 신청 조건</h3>
+  <p>
+    서울복지포털 가족돌봄정보 <strong>등록 완료</strong>자만 신청 가능 (임시저장 불가)<br>
+    파일형식 ZIP 업로드 가능 · 파일명 "성명_서류명" 형식<br>
+    <a href="https://wis.seoul.go.kr/was/fmc/FamilyCareInfo.do?tabNo=4" target="_blank">👉 서울복지포털 바로가기</a>
+  </p>
+  <h3 style="margin-top:14px">📞 공통 문의처</h3>
+  <p>
+    서울시복지재단 사회서비스지원센터 가족돌봄청년지원팀<br>
+    ☎ 02-6353-0338 · careyouth@welfare.seoul.kr<br>
+    <a href="http://pf.kakao.com/_JVWWG" target="_blank">👉 카카오톡 채널 「서울시가족돌봄청년지원 WAY」</a>
+  </p>
+</div>
+
+<div style="text-align:center;margin-top:32px;font-size:11px;color:#A0A0A0">
+  서울시복지재단 가족돌봄청년지원팀 WAY · 2026.06 기준 · 내용 변경 시 별도 공지
+</div>
+
+</div>
+
+<script>
+function fil(cat,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.section').forEach(s=>{
+    s.style.display=(cat==='all'||s.dataset.cat===cat)?'block':'none';
+  });
+}
+</script>
+</body>
+</html>
